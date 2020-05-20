@@ -11,7 +11,6 @@ import org.yelong.core.jdbc.dialect.Dialect;
 import org.yelong.core.jdbc.dialect.Dialects;
 import org.yelong.core.jdbc.sql.condition.support.DefaultConditionResolver;
 import org.yelong.core.model.ModelConfiguration;
-import org.yelong.core.model.ModelProperties;
 import org.yelong.core.model.resolve.AnnotationModelResolver;
 import org.yelong.core.model.resolve.ModelAndTableManager;
 import org.yelong.core.model.sql.DefaultModelSqlFragmentFactory;
@@ -36,7 +35,7 @@ public class ModelConfigurationAutoConfigure extends ModelConfiguration implemen
 	private String dialectClassName;
 
 	public ModelConfigurationAutoConfigure() {
-		super(null, null, null, null,null, null);
+		super(null, null, null,null, null);
 	}
 
 	@Override
@@ -50,9 +49,6 @@ public class ModelConfigurationAutoConfigure extends ModelConfiguration implemen
 			}
 		}
 		Assert.notNull(getDialect(), "Property 'dialect' is required");
-		if( null == getModelProperties() ) {
-			setModelProperties(new ModelProperties());
-		}
 		if( null == getModelAndTableManager() ) {
 			setModelAndTableManager(new ModelAndTableManager(new AnnotationModelResolver(getModelProperties())));
 		}
