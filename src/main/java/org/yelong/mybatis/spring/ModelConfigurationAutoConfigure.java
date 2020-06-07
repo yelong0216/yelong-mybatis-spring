@@ -18,6 +18,7 @@ import org.yelong.core.model.sql.DefaultSqlModelResolver;
 
 /**
  * ModelConfiguration的自动配置实现
+ * 
  * @author PengFei
  * @since 1.0.0
  */
@@ -25,6 +26,7 @@ public class ModelConfigurationAutoConfigure extends ModelConfiguration implemen
 
 	/**
 	 * 方言名字
+	 * 
 	 * {@link Dialects}
 	 */
 	private String dialectName;

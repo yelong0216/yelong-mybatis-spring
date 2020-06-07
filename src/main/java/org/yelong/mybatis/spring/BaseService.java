@@ -11,6 +11,7 @@ import org.yelong.core.model.service.ModelService;
 
 /**
  * 基础的服务。提供事务以及常用的一些方法
+ * 
  * @author PengFei
  * @since 1.0.0
  */
@@ -19,7 +20,8 @@ public abstract class BaseService {
 
 	/**
 	 * 获取组合条件
-	 * @param modelService
+	 * 
+	 * @param modelService model service
 	 * @return 组合条件
 	 */
 	public CombinationConditionSqlFragment createCombinationSqlCondition(ModelService modelService) {
@@ -28,7 +30,8 @@ public abstract class BaseService {
 	
 	/**
 	 * 创建简单条件
-	 * @param modelService
+	 * 
+	 * @param modelService model service
 	 * @param condition 条件sql ： username = ?
 	 * @param params 条件的参数
 	 * @return 条件
@@ -39,8 +42,9 @@ public abstract class BaseService {
 	
 	/**
 	 * 创建排序片段
-	 * @param modelService
-	 * @return排序
+	 * 
+	 * @param modelService model service
+	 * @return 排序
 	 */
 	public SortSqlFragment createSortSqlFragment(ModelService modelService) {
 		return modelService.getModelConfiguration().getModelSqlFragmentFactory().createSortSqlFragment();
