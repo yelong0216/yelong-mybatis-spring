@@ -22,7 +22,7 @@ import org.yelong.core.model.sql.DefaultSqlModelResolver;
  * @author PengFei
  * @since 1.0.0
  */
-public class ModelConfigurationAutoConfigure extends ModelConfiguration implements InitializingBean{
+public class ModelConfigurationAutoConfigure extends ModelConfiguration implements InitializingBean {
 
 	/**
 	 * 方言名字
@@ -37,30 +37,31 @@ public class ModelConfigurationAutoConfigure extends ModelConfiguration implemen
 	private String dialectClassName;
 
 	public ModelConfigurationAutoConfigure() {
-		super(null, null, null,null, null);
+		super(null, null, null, null, null);
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		//不存在方言时，根据方言名称、类名的顺序进行初始化。
-		if( null == getDialect() ) {
-			if(StringUtils.isNotBlank(dialectName)) {
+		// 不存在方言时，根据方言名称、类名的顺序进行初始化。
+		if (null == getDialect()) {
+			if (StringUtils.isNotBlank(dialectName)) {
 				setDialect(Dialects.valueOfByName(dialectName).getDialect());
-			} else if(StringUtils.isNotBlank(dialectClassName)) {
-				setDialect((Dialect)ClassUtils.getClass(dialectClassName).newInstance());
+			} else if (StringUtils.isNotBlank(dialectClassName)) {
+				setDialect((Dialect) ClassUtils.getClass(dialectClassName).newInstance());
 			}
 		}
 		Assert.notNull(getDialect(), "Property 'dialect' is required");
-		if( null == getModelAndTableManager() ) {
+		if (null == getModelAndTableManager()) {
 			setModelAndTableManager(new ModelAndTableManager(new AnnotationModelResolver(getModelProperties())));
 		}
-		if( null == getModelSqlFragmentFactory() ) {
-			setModelSqlFragmentFactory(new DefaultModelSqlFragmentFactory(getDialect(), getModelAndTableManager()));
+		if (null == getModelSqlFragmentFactory()) {
+			setModelSqlFragmentFactory(new DefaultModelSqlFragmentFactory(getDialect().getSqlFragmentFactory(),
+					getModelAndTableManager()));
 		}
-		if( null == getConditionResolver() ) {
+		if (null == getConditionResolver()) {
 			setConditionResolver(new DefaultConditionResolver(getModelSqlFragmentFactory()));
 		}
-		if( null == getSqlModelResolver() ) {
+		if (null == getSqlModelResolver()) {
 			setSqlModelResolver(new DefaultSqlModelResolver(getModelAndTableManager(), getConditionResolver()));
 		}
 	}
@@ -80,5 +81,5 @@ public class ModelConfigurationAutoConfigure extends ModelConfiguration implemen
 	public void setDialectClassName(String dialectClassName) {
 		this.dialectClassName = dialectClassName;
 	}
-	
+
 }

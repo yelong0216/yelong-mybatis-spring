@@ -15,7 +15,7 @@ import org.yelong.core.model.service.ModelService;
  * @author PengFei
  * @since 1.0.0
  */
-@Transactional//提供事务
+@Transactional // 提供事务
 public abstract class BaseService {
 
 	/**
@@ -25,21 +25,24 @@ public abstract class BaseService {
 	 * @return 组合条件
 	 */
 	public CombinationConditionSqlFragment createCombinationSqlCondition(ModelService modelService) {
-		return modelService.getModelConfiguration().getModelSqlFragmentFactory().createCombinationConditionSqlFragment();
+		return modelService.getModelConfiguration().getModelSqlFragmentFactory()
+				.createCombinationConditionSqlFragment();
 	}
-	
+
 	/**
 	 * 创建简单条件
 	 * 
 	 * @param modelService model service
-	 * @param condition 条件sql ： username = ?
-	 * @param params 条件的参数
+	 * @param condition    条件sql ： username = ?
+	 * @param params       条件的参数
 	 * @return 条件
 	 */
-	public SimpleConditionSqlFragment createSimpleSqlCondition(ModelService modelService,String conditionSqlFragment,Object ... params) {
-		return modelService.getModelConfiguration().getModelSqlFragmentFactory().createConditionSqlFragment(conditionSqlFragment, params);
+	public SimpleConditionSqlFragment createSimpleSqlCondition(ModelService modelService, String conditionSqlFragment,
+			Object... params) {
+		return modelService.getModelConfiguration().getModelSqlFragmentFactory()
+				.createConditionSqlFragment(conditionSqlFragment, params);
 	}
-	
+
 	/**
 	 * 创建排序片段
 	 * 
@@ -49,5 +52,5 @@ public abstract class BaseService {
 	public SortSqlFragment createSortSqlFragment(ModelService modelService) {
 		return modelService.getModelConfiguration().getModelSqlFragmentFactory().createSortSqlFragment();
 	}
-	
+
 }
