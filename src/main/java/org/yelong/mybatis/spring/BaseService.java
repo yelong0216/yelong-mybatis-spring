@@ -12,8 +12,7 @@ import org.yelong.core.model.service.ModelService;
 /**
  * 基础的服务。提供事务以及常用的一些方法
  * 
- * @author PengFei
- * @since 1.0.0
+ * @since 1.0
  */
 @Transactional // 提供事务
 public abstract class BaseService {
@@ -32,9 +31,9 @@ public abstract class BaseService {
 	/**
 	 * 创建简单条件
 	 * 
-	 * @param modelService model service
-	 * @param condition    条件sql ： username = ?
-	 * @param params       条件的参数
+	 * @param modelService         model service
+	 * @param conditionSqlFragment 条件sql ： username = ?
+	 * @param params               条件的参数
 	 * @return 条件
 	 */
 	public SimpleConditionSqlFragment createSimpleSqlCondition(ModelService modelService, String conditionSqlFragment,

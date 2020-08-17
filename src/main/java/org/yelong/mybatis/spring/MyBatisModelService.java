@@ -10,8 +10,7 @@ import org.yelong.support.orm.mybaits.pagehelper.AbstractPageHelperModelService;
 /**
  * 默认的ModelService实现
  * 
- * @author PengFei
- * @since 1.0.0
+ * @since 1.0
  */
 public class MyBatisModelService extends AbstractPageHelperModelService {
 

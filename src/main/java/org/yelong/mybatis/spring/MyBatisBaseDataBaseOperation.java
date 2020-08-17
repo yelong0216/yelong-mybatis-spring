@@ -10,8 +10,7 @@ import org.yelong.support.orm.mybaits.mapper.DefaultMyBatisBaseDataBaseOperation
 /**
  * 只是继承 {@link DefaultMyBatisBaseDataBaseOperation} 方便使用
  * 
- * @author PengFei
- * @since 1.0.0
+ * @since 1.0
  */
 @Transactional
 public class MyBatisBaseDataBaseOperation extends DefaultMyBatisBaseDataBaseOperation {
