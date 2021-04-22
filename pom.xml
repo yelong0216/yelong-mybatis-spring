@@ -31,7 +31,7 @@
 		<yelong-commons.version>${yelong.version}</yelong-commons.version>
 		<yelong-core.version>${yelong.version}</yelong-core.version>
 		<yelong-support.version>${yelong.version}</yelong-support.version>
-		<mybatis.version>3.5.2</mybatis.version>
+		<mybatis.version>3.5.6</mybatis.version>
 		<pagehelper.version>5.1.4</pagehelper.version>
 		<javax.servlet-api.version>4.0.1</javax.servlet-api.version>
 		<spring.version>5.1.5.RELEASE</spring.version>
